@@ -23,7 +23,7 @@ int main() {
   vector<int>bought(m, -1);
   for(int i = 0; i < m; ++i) {
     auto it = prices.upper_bound(bids[i]);
-    if(it != prices.end()) {
+    if(it != prices.begin()) {
       --it;
       bought[i] = *it;
       prices.erase(it);
