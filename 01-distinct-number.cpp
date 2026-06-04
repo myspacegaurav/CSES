@@ -1,11 +1,11 @@
 #include<iostream>
-#include<unordered_set>
+#include<set>
 
 using namespace std;
 
 int main() {
   int n, x;
-  unordered_set<int>s;
+  set<int>s;
   cin >> n;
   //enter stream of integers
   //and store it in set
