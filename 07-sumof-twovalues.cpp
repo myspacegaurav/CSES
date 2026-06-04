@@ -6,13 +6,13 @@
 
 using namespace std;
 
-pair<int,int> twoSum(vector<int>& arr, int target) {
+pair<int,int> twoSum(vector<pair<int, int>>& arr, int target) {
   int start = 0;
   int end = arr.size() - 1;
   while(start < end) {
-    int sum = arr[start] + arr[end];
+    int sum = arr[start].first + arr[end].first;
     if(sum == target) {
-      return {start, end};
+      return {arr[start].second + 1, arr[end].second + 1};
     }
     else if(sum < target) {
       start++;
@@ -27,13 +27,14 @@ pair<int,int> twoSum(vector<int>& arr, int target) {
 int main() {
   int n, x;
   cin >> n >> x;
-  vector<int> arr(n);
+  vector<pair<int, int>> arr(n);
   for(int i = 0; i < n; i++) {
-    cin >> arr[i];
+    cin >> arr[i].first;
+    arr[i].second = i;
   }
   sort(arr.begin(), arr.end());
   pair<int,int> result = twoSum(arr, x);
-  if(result.first != -1) {
+  if(result.first == -1) {
     cout << "IMPOSSIBLE" << endl;
   } else {
     cout << result.first << " " << result.second << endl;
