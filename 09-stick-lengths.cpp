@@ -17,6 +17,10 @@ int main() {
   sort(arr.begin(), arr.end());
 
   int median = arr[n/2];
-  cout << median << endl;
+  long long total_cost = 0;
+  for(int i = 0; i < n; i++) {
+    total_cost += abs(arr[i] - median);
+  }
+  cout << total_cost << endl;
   return 0;
 }
