@@ -2,6 +2,7 @@
 
 #include<iostream>
 #include<vector>
+#include<climits>
 
 using namespace std;
 
@@ -12,8 +13,8 @@ int main() {
   for (int i = 0; i < n; i++) {
     cin >> arr[i];
   }
-  int maxSum = INT_MIN;
-  int sum = 0;
+  long long maxSum = INT_MIN;
+  long long sum = 0;
   for(int &num : arr) {
     sum += num;
     maxSum = max(maxSum, sum);
