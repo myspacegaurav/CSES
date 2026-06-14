@@ -14,18 +14,18 @@ int **dp;
 int ways(int * arr, int n, int sum) {
   if(sum == 0) return 1;
   if(n == 0) return 0;
-
+  
   if(sum < 0) return 0;
   if(dp[n][sum] != -1) return dp[n][sum];
 
-  long long w = 0;
+  int w = 0;
   w = (ways(arr, n, sum - arr[n - 1]) + ways(arr, n - 1, sum)) % MOD;
   return dp[n][sum] = w;
 }
 
 int main() {
   int n, sum;
-  (void)scanf("%d%d", &n, &sum);
+  scanf("%d%d", &n, &sum);
 
   int *coins = (int*) malloc(n * sizeof(int));
 
@@ -37,7 +37,8 @@ int main() {
       dp[i][j] = -1;
   }
 
-  for(int i = 0; i < n; ++i) (void) scanf("%d", &coins[i]);
+  for(int i = 0; i < n; ++i) scanf("%d", &coins[i]);
   
   printf("%d", ways(coins, n, sum));
+  return 0;
 }
