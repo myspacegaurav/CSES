@@ -16,11 +16,11 @@ string f(vector<vector<char>>& grid, int i, int j) {
 int main() {
   int n;
   cin >> n;
-  vector<vector<char>>grid(n);
+  vector<vector<char>>grid(n, vector<char>(n));
 
   for(int i = 0; i < n; ++i)
     for(int j = 0; j < n; ++j)
       cin >> grid[i][j];
 
-  f(grid, n, n);
+  cout << f(grid, n, n);
 }
